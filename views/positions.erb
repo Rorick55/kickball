@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Position</title>
+  </head>
+
+  <body>
+    <h1><%= params[:position] %></h1>
+      <table style ="width:400px;text-align:left">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Team</th>
+        </tr>
+          <% @rosters.each do |each_index| %>
+          <% if each_index[:position] == params[:position] %>
+          <tr>
+          <td><%= each_index[:first_name] %></td>
+          <td><%= each_index[:last_name] %></td>
+          <td><%= each_index[:team] %></td>
+        </tr>
+          <% end %>
+        <% end %>
+      </table>
+      <p><a href="http://localhost:4567/">Back to Roster</a></p>
+  </body>
+</html>

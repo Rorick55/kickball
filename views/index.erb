@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Basic HTML Page</title>
+  </head>
+
+  <body>
+    <h1 style="text-align:center;">Roster</h1>
+      <div style="text-align:center;">
+        <form action="/add" method="post">
+          <label for="add_player">Add Player:</label>
+          <input type="text" id="add_first" name="add_first" placeholder="First Name" />
+          <input type="text" id="add_last" name="add_last" placeholder="Last name" />
+          <select name="team" id="add_team">
+            <option value="Simpson Slammers">Simpson Slammers</option>
+            <option value="Jetson Jets">Jetson Jets</option>
+            <option value="Flinestone Fire">Flinestone Fire</option>
+            <option value="Griffin Goats">Griffin Goats</option>
+            <option value="Team Team">Team Team</option>
+          </select>
+            <select name="position" id="add_position">
+            <option value="Catcher">Catcher</option>
+            <option value="Pitcher">Pitcher</option>
+            <option value="1st Base">1st Base</option>
+            <option value="2nd Base">2nd Base</option>
+            <option value="3rd Base">3rd Base</option>
+            <option value="Shortstop">Shortstop</option>
+            <option value="Right Field">Right Field</option>
+            <option value="Center Field">Center Field</option>
+            <option value="3rd Base">Left Field</option>
+          </select>
+        <input type="submit" />
+        </form>
+      </div>
+
+      <table style ="width:200px;float:left;margin:30px 0 0 400px;text-align:center;">
+        <tr>
+          <th>Teams</th>
+        </tr>
+        <% @teams_array.each do |team| %>
+         <tr>
+          <td><a href= "/roster/<%="#{team}"%>"><%= team %></a></td>
+          <% end %>
+          </tr>
+      </table>
+      <table style ="width:200px;float:right;margin:30px 400px 0 0 ;text-align:center;">
+        <tr>
+          <th>Positions</th>
+        </tr>
+          <% @positions_array.each do |position| %>
+        <tr>
+          <td><a href= "/position/<%="#{position}"%>"><%= position %></a></td>
+          <% end %>
+        </tr>
+      </table>
+  </body>
+</html>

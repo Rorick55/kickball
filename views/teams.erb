@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Basic HTML Page</title>
+    <title>Team</title>
+    <link rel="stylesheet" href="home.css" />
   </head>
 
   <body>
-      <% @rosters.each do |x| %>
-      <p><%= x %></p>
-      <% end %>
+    <h1><%= params[:team] %></h1>
+      <table style ="width:400px;text-align:left">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Position</th>
+        </tr>
+        <% @rosters.each do |each_index| %>
+          <% if each_index[:team] == params[:team] %>
+        <tr>
+          <td><%= each_index[:first_name] %></td>
+          <td><%= each_index[:last_name] %></td>
+          <td><%= each_index[:position] %></td>
+        </tr>
+          <% end %>
+        <% end %>
+      </table>
+        <p><a href="http://localhost:4567/">Back to Roster</a></p>
   </body>
 </html>
